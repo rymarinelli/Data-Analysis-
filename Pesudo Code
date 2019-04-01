@@ -1,1 +1,87 @@
 // Pesudo Code 
+
+/*
+Read csv
+Read csv into dataframe
+Subset Dataframe  into lists composed of ticket opening time, ticket closing time, type of problem, zipcode,  latitude and longtitude. 
+Combine lists into dataframe from the ticket opening time, ticket closting time, latitude, and longitutde.
+Combine lists into dataframe from time of problems,zipcode, latitude and longtitude
+
+Sort the time of problems into factor variables for analysis
+Create while loop sorting the problem column of the dataframe by the letter
+Sort if the first characters of the problem is "Co", count as a "Code Enforcement request."
+  If characters start with  "Co", store each instance with the row 
+  
+Sort if the first characters of the problem starts with "Re", count as "Residential Recycling Program"
+If characters start with "Re", store each instance with the row
+
+Sort if the first characters of the problem starts with "Street L", count as a "Street Light." 
+If characters start with "Street L", store each instance with the row 
+
+Sort if the first character of the problem starts with "Tras", count as a "Trash Collection."  
+If characters start with "Tras, store each instance with the row
+
+Sort if the first characters of the problem starts with "La, count as a "Large Item Pick Up." 
+If characters start with  "La", store each instance with the row 
+
+Sort if the first character of the problem starts with "P", count as a "Pothole/Surface Repair."
+If characters start with  "P", store each instance with the row 
+
+Sort if the first character of the problem starts with "A", count as an "Abandoned Vehcile." 
+If characters start with  "A", store each instance with the row 
+
+Sort if the first character of the problem starts with "G", count as a "General Service Report."
+If characters start with  "G", store each instance with the row 
+
+Sort if the first character of the problem starts with "I", count as an "Illegal Dumping Report."
+If characters start with "I", store each instance with the row 
+
+Sort if the first characters of the problem starts with "Ca, count as a "Catch Basin Maintence."
+If characters start with  "Ca", store each instance with the row
+
+Sort if the first characters of the problem starts with "Street F", count as a "Street Flooding/Drainage."
+If characters start with  "Street F", store each instance with the row 
+
+Sort if the first characters of the problem starts with "Tree", count as "Tree Service/Tree Service Emergency."
+If characters start with  "Tree", store each instance with the row 
+
+Sort if the first characters of the problem starts with "Ro", count as a "Rodent Complant."
+If characters start with "Ro", store each instance with the row 
+
+Sort if the first characters of the problem starts with "Traffic Si", count as "Traffic Signal and Traffic Sign."
+If characters start with  "Traffic Si", store each instance with the row
+
+Sort if the first character of the problem starts with "Si", count as "Sidewalk Repair."
+If characters start with  "Si", store each instance with the row 
+
+Sort if the first characters of the problem starts with "Su", count as "Subsidence."
+If characters start with  "Su", store each instance with the row 
+
+Sort if the first character of the problem starts with "M', count as "Mosquito Control."
+If characters start with "M", store each instance with the row 
+
+Sort if the first characters of the problem starts with "Street N", count as a "Street Name Sign."
+If characters start with  "N", store each instance with the row 
+
+Subset Dataframe with lists with each instance of the sorted rows
+Subsetted dataframe will provide zipcode, latitude and long by issue type 
+
+Access RJava library, ggplot2 library, and ggmap library 
+
+Through RJava define distance through the public class DistanceCalculator 
+Apply KNN routine via Apache Commons/ knn function under the Class package 
+
+Apply qmaps function in the ggmaps package to plot the result 
+
+Write csv and image to file
+
+Open csv file in Java 
+
+Create public class Image
+Create Driver 
+
+
+
+
+
+
