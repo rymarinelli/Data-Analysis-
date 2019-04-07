@@ -1,0 +1,8 @@
+install.packages("RSocrata")
+library(RSocrata)
+
+data <-read.socrata("https://data.nola.gov/resource/m959-fs8u.csv")
+data.frame(data)
+
+colnames(data)
+
