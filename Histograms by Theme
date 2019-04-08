@@ -1,0 +1,62 @@
+
+as.factor(zip_code)
+
+par(mfrow=c(2,2))
+
+
+#Dumping Related Problems 
+hist(abandonedVehicle$zip_code)
+hist(illegalDumping$zip_code)
+hist(largeItem$zip_code)
+hist(trash$zip_code)
+
+
+#Flooding Related Problems 
+hist(streetFlooding$zip_code)
+hist(catchBasin$zip_code)
+
+#Housing Problems 
+hist(recyclingProgram$zip_code) 
+hist(sidewalkRepair$zip_code) 
+hist(inspection$zip_code) 
+
+#Street Related Problems 
+hist(potholeRepair$zip_code)
+hist(trafficSign$zip_code)
+hist(streetLight$zip_code)
+hist(streetSign$zip_code)
+
+#Tree Related Problems 
+hist(treeServiceEmergency$zip_code)
+hist(treeService$zip_code)
+hist(mosquitoControl$zip_code)
+hist(treeMainteneance$zip_code) 
+
+#Other 
+hist(generalService$zip_code)
+hist(codeEnforcement$zip_code)
+hist(subsidence$zip_code)
+
+#Animal Related Problems 
+hist(rodentComplaint$zip_code)
+hist(deadAnimalPickup$zip_code) 
+hist(otherAnimal$zip_code)
+
+#Traffic Problems 
+hist(roadMarking$zip_code)
+hist(trafficSigna$zip_code)
+hist(roadShoulder$zip_code)
+hist(curbRepair$zip_code)
+
+#parks
+hist(parkCompliant$zip_code)
+hist(parkGrass$zip_code)
+hist(parkMaintenance$zip_code) 
+hist(grassService$zip_code) 
+
+#Misc
+hist(park$zip_code)
+hist(manholeCover$zip_code)
+
+
+
