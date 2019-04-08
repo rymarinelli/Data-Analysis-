@@ -4,5 +4,170 @@ library(RSocrata)
 data <-read.socrata("https://data.nola.gov/resource/m959-fs8u.csv")
 data.frame(data)
 
+install.packages("dplyr")
+install.packages("rlang")
+
+library(dplyr)
+library(stringr)
+
 colnames(data)
+
+# Filters out Traffic Signal Issues and creates Data Frame 
+trafficSignals <- filter(data, `Request Type` == "Traffic Signals/Signs/Striping/Streetlights" )
+data.frame(trafficSignals)
+
+#Filters out Trash/Recycling Issues and creates Data Frame  
+trashAndRecycling <- filter(data, `Request Type` == "Trash/Recycling" )
+data.frame(trashAndRecycling)
+
+#Filters out Roads and Drainage and creates Data Frame  
+roadsAndDrainage <- filter(data, `Request Type` == "Roads/Drainage" )
+data.frame(roadsAndDrainage)
+
+#Filters out Park & Parkways and create Data Frame
+parksAndParkways <- filter(data, `Request Type` == "Parks & Parkways")
+data.frame(ParksAndParkways)
+
+# Filters out Property Maintenance and creates Data Frame
+propertyMaintence <- filter(data, `Request Type` == "Property Maintenance")
+data.frame(propertyMaintence)
+
+#Tax and Revenue
+taxAndRev <- filter(data, `Request Type` == "Tax and Revenue")
+data.frame(propertyMaintence)
+
+#Abandoned Vehicles
+abondonedVehicle <- filter(data, `Request Type` == "Abandoned Vehicles")
+data.frame(abondonedVehicle)
+
+#General Services
+generalServices <- filter(data, `Request Type` == "General Services")
+data.frame(generalServices)
+
+
+#Taxi Issues
+taxiIssues <- filter(data, `Request Type` == "Taxi Issues")
+data.frame(taxiIssues)
+
+#Mosquito, Termite & Rodent Control
+#It may be a good idea to see if there is data on west nile virus.
+# It may be interesting to see if there is a lag in the number of calls made and reports of West Nile
+mosquitoAndPests <- filter(data, `Request Type` == "Mosquito, Termite & Rodent Control")
+data.frame(mosquitoAndPests)
+
+#Safety & Permits
+safetyAndPermit <- filter(data, `Request Type` == "Safety & Permits")
+data.frame(safetyAndPermit)
+
+#EMS
+EMS <- filter(data, `Request Type` == "EMS")
+data.frame(EMS)
+
+#Health Related Questions
+healthRelatedQuestions <- filter(data, `Request Type` == "Health Related Questions")
+data.frame(healthRelatedQuestions)
+
+# Mayor's Request
+mayorRequest <- filter(data, `Request Type` == "Mayor's Request")
+data.frame(mayorRequest)
+
+#Law Enforcement 
+lawEnforcementServices <- filter(data, `Request Type` == "Law Enforcement Services")
+data.frame(lawEnforcementServices)
+
+# Confirming all Problems have been extracted From the Original Data Set
+# dataFilter <- data[,1]
+# dataFilter <- filter(dataFilter, dataFilter != "Traffic Signals/Signs/Striping/Streetlights")
+# dataFilter <- filter(dataFilter, dataFilter != "Trash/Recycling" & dataFilter != "Roads/Drainage")                     
+#dataFilter <- filter(dataFilter, dataFilter != "Parks & Parkways" & dataFilter != "Property Maintenance" & dataFilter != "Tax and Revenue"
+#                     &  dataFilter != "Abandoned Vehicles" & dataFilter != "General Services" & dataFilter != "Taxi Issues")
+#dataFilter <- filter(dataFilter, dataFilter != "Safety & Permits" & dataFilter != "EMS" )
+#dataFilter <- filter(dataFilter, dataFilter != "Mosquito, Termite & Rodent Control" & dataFilter != "Health Related Questions" )
+#dataFilter <- filter(dataFilter,dataFilter !="Mayor's Request")
+#dataFilter <- filter(dataFilter, dataFilter == "Law Enforcement Services")
+
+# Writes Abondoned Vehicle to File  
+write.table(abondonedVehicle, file = "Abondoned  Vehicle .csv", append = FALSE, quote = TRUE, sep = " , ",
+            eol = "\n", na = "NA", dec = ".", row.names = FALSE,
+            col.names = TRUE, qmethod = c("escape", "double"),
+            fileEncoding = "")
+
+#Writes EMS to File 
+write.table(EMS, file = "EMS.csv", append = FALSE, quote = TRUE, sep = " , ",
+            eol = "\n", na = "NA", dec = ".", row.names = FALSE,
+            col.names = TRUE, qmethod = c("escape", "double"),
+            fileEncoding = "")
+
+#Writes General Services to File 
+write.table(generalServices, file = "General Services .csv", append = FALSE, quote = TRUE, sep = " , ",
+            eol = "\n", na = "NA", dec = ".", row.names = FALSE,
+            col.names = TRUE, qmethod = c("escape", "double"),
+            fileEncoding = "")
+
+#Writes Health Related Questions to File 
+write.table(healthRelatedQuestions, file = "Health Related Question .csv", append = FALSE, quote = TRUE, sep = " , ",
+            eol = "\n", na = "NA", dec = ".", row.names = FALSE,
+            col.names = TRUE, qmethod = c("escape", "double"),
+            fileEncoding = "")
+
+#Writes Law Enforcement to File 
+write.table(lawEnforcementServices, file = "Law Enforcement .csv", append = FALSE, quote = TRUE, sep = " , ",
+            eol = "\n", na = "NA", dec = ".", row.names = FALSE,
+            col.names = TRUE, qmethod = c("escape", "double"),
+            fileEncoding = "")
+
+#Writes Mayor's Request's to File
+write.table(mayorRequest, file = "Mayor's Request .csv", append = FALSE, quote = TRUE, sep = " , ",
+            eol = "\n", na = "NA", dec = ".", row.names = FALSE,
+            col.names = TRUE, qmethod = c("escape", "double"),
+            fileEncoding = "")
+
+#Writes Mosquito and Pests to File
+write.table(mosquitoAndPests, file = "Mosquito and Pests .csv", append = FALSE, quote = TRUE, sep = " , ",
+            eol = "\n", na = "NA", dec = ".", row.names = FALSE,
+            col.names = TRUE, qmethod = c("escape", "double"),
+            fileEncoding = "")
+
+#Writes Park and ParksWays to File
+write.table(parksAndParkways, file = "Parks and Parkways .csv", append = FALSE, quote = TRUE, sep = " , ",
+            eol = "\n", na = "NA", dec = ".", row.names = FALSE,
+            col.names = TRUE, qmethod = c("escape", "double"),
+            fileEncoding = "")
+
+#Writes Property Maintence to File 
+write.table(propertyMaintence, file = "Property Mainence.csv", append = FALSE, quote = TRUE, sep = " , ",
+            eol = "\n", na = "NA", dec = ".", row.names = FALSE,
+            col.names = TRUE, qmethod = c("escape", "double"),
+            fileEncoding = "")
+
+#Writes Roads and Drainage to File
+write.table(roadsAndDrainage, file = "Roads and Drainage .csv", append = FALSE, quote = TRUE, sep = " , ",
+            eol = "\n", na = "NA", dec = ".", row.names = FALSE,
+            col.names = TRUE, qmethod = c("escape", "double"),
+            fileEncoding = "")
+
+#Writes Safety and Permits to File
+write.table(safetyAndPermit, file = "Safety and Permits  .csv", append = FALSE, quote = TRUE, sep = " , ",
+            eol = "\n", na = "NA", dec = ".", row.names = FALSE,
+            col.names = TRUE, qmethod = c("escape", "double"),
+            fileEncoding = "")
+
+#Writes Tax and Revenue to File
+write.table(taxAndRev, file = "Tax and Revenue .csv", append = FALSE, quote = TRUE, sep = " , ",
+            eol = "\n", na = "NA", dec = ".", row.names = FALSE,
+            col.names = TRUE, qmethod = c("escape", "double"),
+            fileEncoding = "")
+
+#Writes Taxi Issues to File 
+write.table(trafficSignals, file = "Traffic Issues.csv", append = FALSE, quote = TRUE, sep = " , ",
+            eol = "\n", na = "NA", dec = ".", row.names = FALSE,
+            col.names = TRUE, qmethod = c("escape", "double"),
+            fileEncoding = "")
+
+#Write Trash Related Issues to File 
+write.table(trashAndRecycling, file = "Trash Issues.csv", append = FALSE, quote = TRUE, sep = " , ",
+            eol = "\n", na = "NA", dec = ".", row.names = FALSE,
+            col.names = TRUE, qmethod = c("escape", "double"),
+            fileEncoding = "")
+
 
