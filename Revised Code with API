@@ -115,7 +115,7 @@ data.frame(parkCompliant)
 parkGrass <- filter(data, issue_type == "NORDC Grass Service")
 data.frame(parkGrass)
 
-inspection <- filter(data, issue_type = "Occupancy Inspection")
+inspection <- filter(data, issue_type == "Occupancy Inspection")
 data.frame(inspection)
 
 # Code Checks if All data was filtered by issue type 
