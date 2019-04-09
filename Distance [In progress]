@@ -1,21 +1,27 @@
-#Finds Distance 
-install.package("Rtools")
-install.packages("geosphere")
 library(geosphere)
-
-lat <- abandonedVehicle$latitude 
-long <- abandonedVehicle$longitude 
-loc <- c(long,lat)
-loc
-
-test <- abandonedVehicle$location
 
 cityHallLat <- 29.951065
 CityHallLong <- -90.071533
-loc2 <- c(CityHallLong, cityHallLat)
 
-distHaversine( p1 = loc, p2 = c(loc2))
-?distHaversine
+length(abandonedVehicle$longitude)
 
-abandonVehicleDist <- lapply(loc, distHaversine(loc,loc2))
-loc
+city <- c(CityHallLong,cityHallLat)
+
+long <- abandonedVehicle$longitude[1: 31643]
+lat <- abandonedVehicle$latitude[1: 31798]
+
+distance <- seq(1:31798)
+
+for( i in 1: 31798){
+  
+  lat <- abandonedVehicle$latitude[i]
+  long <- abandonedVehicle$longitude[i]
+  loc <- c(long,lat)
+  
+  
+  distance[i] <-  distHaversine(loc, city)
+  
+}
+
+abandonedVehicleDistance <- distance
+hist(abandonedVehicleDistance)
