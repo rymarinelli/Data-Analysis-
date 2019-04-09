@@ -1,0 +1,92 @@
+#Time Operations
+library(lubridate)
+
+#Finds the amount needed to close a ticket of an abandoned car 
+abandonedVehicleStart <- abandonedVehicle[,"ticket_created_date_time"]
+abandonedVehicleClose <- abandonedVehicle[,"ticket_closed_date_time"]
+abandonedVechicleTime <- interval(abandonedVehicleStart,abandonedVehicleClose)
+abandonedVechicleTime <- time_length(abandonedVechicleTime,"days")
+
+timePrinter <-function(x){
+  x_Start <- x[,"ticket_created_date_time"]
+  x_Close <- x[,"ticket_closed_date_time"]
+  x_Time <- interval(x_Start, x_Close)
+  x_Time <- time_length(x_Time, "days")
+  print(x_Time)
+}
+
+
+issues <- c(abandonedVehicle, catchBasin, codeEnforcement, recyclingProgram, grassService,
+            illegalDumping, potholeRepair, streetFlooding, treeServiceEmergency, largeItem,
+            mosquitoControl, treeService, trafficSign, streetLight, generalService, trash,
+            streetLight, rodentComplaint, streetSign, roadMarking, deadAnimalPickup, subsidence ,
+            trafficSignal, roadShoulder, curbRepair, parkMaintenance, sidewalkRepair, treeMainteneance,
+            park, manholeCover, otherAnimal, parkCompliant , parkGrass, inspection)  
+
+ abandonedVechicleTime <- timePrinter(abandonedVehicle)
+ 
+ catchBasinTime        <- timePrinter(catchBasin)
+ 
+ codeEnforcementTime   <- timePrinter(codeEnforcement)
+ 
+ recyclingProgramTime  <- timePrinter(recyclingProgram)
+ 
+ grassServiceTime      <- timePrinter(grassService)
+ 
+ illegalDumpingTime    <- timePrinter(illegalDumping)
+ 
+ potholeRepairTime     <- timePrinter(potholeRepair)
+ 
+ streetFloodingTime    <-  timePrinter(streetFlooding) 
+                          
+ treeServiceEmergencyTime <- timePrinter(treeServiceEmergency)
+                          
+ largeItemTime           <-  timePrinter(largeItem)
+                          
+mosquitoControltime     <-  timePrinter(mosquitoControl)
+                          
+  treeServiceTime       <-  timePrinter(treeService)
+                          
+  trafficSignTime       <-  timePrinter(trafficSign)
+                          
+   streetLightTime      <-  timePrinter(streetLight)
+                          
+  generalServiceTime    <-  timePrinter(generalService)
+                          
+  trashtime             <-  timePrinter(trash)
+  
+  streetLightTime       <-   timePrinter(streetLight)
+  
+  rodentComplaint       <-   timePrinter(rodentComplaint)
+
+  streetSignTime        <-  timePrinter(streetSign)
+  
+ roadMarkingTime        <-  timePrinter(roadMarking)
+  
+ deadAnimalPickupTime   <-  timePrinter(deadAnimalPickup)
+  
+  subsidenceTime       <-  timePrinter(subsidence)
+  
+ trafficSignalTime      <-  timePrinter(trafficSignal)
+  
+ roadShoulderTime       <-  timePrinter(roadShoulder)
+  
+ curbRepairTime         <-  timePrinter(curbRepair)
+  
+  parkMaintenance       <-   timePrinter(parkMaintenance)
+  
+  sidewalkRepairTime    <-  timePrinter(sidewalkRepair)
+  
+  treeMainteneanceTime  <-  timePrinter(treeMainteneance)
+  
+  parkTime              <-  timePrinter(park)
+  
+  manholeCoverTime      <-  timePrinter(manholeCover)
+  
+  otherAnimalTime       <-  timePrinter(otherAnimal)
+  
+  parkCompliantTime     <-  timePrinter(parkCompliant)
+  
+  parkGrassTime         <-  timePrinter(parkGrass)
+  
+  inspectionTime        <-  timePrinter(inspection)
