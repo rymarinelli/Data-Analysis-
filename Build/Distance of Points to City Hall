@@ -10,12 +10,14 @@ distanceCalcu <- function(x){
   CityHallLong <- -90.071533
   city <- c(CityHallLong,cityHallLat)  
   
+  #Fixes scope of the variables
   x <- x[x$longitude < 360, ]
   y <- nrow(x)
   
   lat <- x$latitude[1 : nrow(x) ]
   long <- x$long[1: nrow(x) ]
   
+  # Provides a vector to store the results of the loop
   distancex <- seq( 1: nrow(x))
   
   for (i in 1: nrow(x)){
@@ -45,7 +47,9 @@ names <- c(abandonedVehicleDistance, catchBasin, codeEnforcementDistance, recycl
             trafficSignalDistance, roadShoulderDistance, curbRepairDistance, parkMaintenanceDistance, sidewalkRepairDistance, treeMainteneanceDistance,
             parkDistance, manholeCoverDistance, otherAnimalDistance, parkCompliantDistance, parkGrassDistance, inspectionDistance)  
             
-# Assigning variables names to lists. Could not be done through loops
+# Assigning variables names to lists. Could not be done through loops because the list is not composed of atomic vectors
+# It is composed of data frames.
+
 abandonedVehicleDistance <- distances[1]
 catchBasinDistance <- distances[2]
 codeEnforcementDistance <- distances[3]
