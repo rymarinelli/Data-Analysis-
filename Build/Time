@@ -7,6 +7,7 @@ abandonedVehicleClose <- abandonedVehicle[,"ticket_closed_date_time"]
 abandonedVechicleTime <- interval(abandonedVehicleStart,abandonedVehicleClose)
 abandonedVechicleTime <- time_length(abandonedVechicleTime,"days")
 
+#Function Generalizes Procedure to find how long it takes for the city to close a ticket
 timePrinter <-function(x){
   x_Start <- x[,"ticket_created_date_time"]
   x_Close <- x[,"ticket_closed_date_time"]
@@ -15,7 +16,7 @@ timePrinter <-function(x){
   print(x_Time)
 }
 
-
+#List of Problem
 issues <- c(abandonedVehicle, catchBasin, codeEnforcement, recyclingProgram, grassService,
             illegalDumping, potholeRepair, streetFlooding, treeServiceEmergency, largeItem,
             mosquitoControl, treeService, trafficSign, streetLight, generalService, trash,
@@ -23,6 +24,7 @@ issues <- c(abandonedVehicle, catchBasin, codeEnforcement, recyclingProgram, gra
             trafficSignal, roadShoulder, curbRepair, parkMaintenance, sidewalkRepair, treeMainteneance,
             park, manholeCover, otherAnimal, parkCompliant , parkGrass, inspection)  
 
+#Finds the duration of tickets and assigns to a vector.
  abandonedVechicleTime <- timePrinter(abandonedVehicle)
  
  catchBasinTime        <- timePrinter(catchBasin)
