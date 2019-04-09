@@ -1,18 +1,21 @@
+#install.packages("geosphere")
 library(geosphere)
+library("dplyr")
+
+## Finds the Distance of all instances of abandoned cars from city hall 
+
+lat <- abandonedVehicle$latitude [1:31643]
+
+abandonedVehicle <- abandonedVehicle[abandonedVehicle$longitude < 360,]
+long <- abandonedVehicle$longitude [1:31643]
 
 cityHallLat <- 29.951065
 CityHallLong <- -90.071533
-
-length(abandonedVehicle$longitude)
-
 city <- c(CityHallLong,cityHallLat)
 
-long <- abandonedVehicle$longitude[1: 31643]
-lat <- abandonedVehicle$latitude[1: 31798]
+distance <- seq(1: 31643)
 
-distance <- seq(1:31798)
-
-for( i in 1: 31798){
+for( i in 1: 31643){
   
   lat <- abandonedVehicle$latitude[i]
   long <- abandonedVehicle$longitude[i]
@@ -23,5 +26,8 @@ for( i in 1: 31798){
   
 }
 
-abandonedVehicleDistance <- distance
-hist(abandonedVehicleDistance)
+#_______________________________________________________________
+
+
+
+
