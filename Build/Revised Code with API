@@ -1,19 +1,19 @@
 install.packages("RSocrata")
 library(RSocrata)
 
+#Reads data from API
 data <-read.socrata("https://data.nola.gov/resource/m959-fs8u.csv")
 data.frame(data)
 
 install.packages("dplyr")
 
-
+#Imports functions for data cleaning
 library(dplyr)
 library(stringr)
 
 
 
-# Filters out Abandoned Vechicles
-
+# Queries Data by issue type
 
 abandonedVehicle <- filter(data, issue_type == "Abandoned Vehicle Reporting/Removal")
 data.frame(abandonedVehicle)
