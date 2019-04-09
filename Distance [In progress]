@@ -1,8 +1,10 @@
 #Attempting to Generalize Distance Script
-# For some reason when you want to terminant the sequence, it will not accept a variabel
-# it wants you to hard code the number 
 
-# Function applies the Haversine formula to each longitutde latitude pair 
+#install.packages("functional)
+library(functional)
+
+#Finds the distance of each point in a dataframe to cityhall
+
 distanceCalcu <- function(x){
   cityHallLat <- 29.951065
   CityHallLong <- -90.071533
@@ -23,16 +25,58 @@ distanceCalcu <- function(x){
     
     distancex[i] <- distHaversine(loc,city )
   }
-  print(distancex)
+  return(distancex)
 }
 
 distanceRecyclingProgram <- distanceCalcu( recyclingProgram)
 
-#Applies the distance function that finds the distance for each point in the dataframe to each dataframe in the dataset
-
-lapply(list(abandonedVehicle, catchBasin, codeEnforcement, recyclingProgram, grassService,
+#Finds the distance where each problem occured in relation to city hall
+distances <- lapply(list(abandonedVehicle, catchBasin, codeEnforcement, recyclingProgram, grassService,
                 illegalDumping, potholeRepair, streetFlooding, treeServiceEmergency, largeItem,
                 mosquitoControl, treeService, trafficSign, streetLight, generalService, trash,
                 streetLight, rodentComplaint, streetSign, roadMarking, deadAnimalPickup, subsidence ,
                 trafficSignal, roadShoulder, curbRepair, parkMaintenance, sidewalkRepair, treeMainteneance,
                 park, manholeCover, otherAnimal, parkCompliant , parkGrass, inspection), distanceCalcu) 
+
+names <- c(abandonedVehicleDistance, catchBasin, codeEnforcementDistance, recyclingProgramDistance, grassServiceDistance,
+            illegalDumpingDistance, potholeRepairDistance, streetFloodingDistance, treeServiceEmergencyDistance,largeItemDistance,
+            mosquitoControlDistance,treeServiceDistance, trafficSignDistance, streetLightDistance, generalServiceDistance, trashDistance,
+            streetLightDistance, rodentComplaintDistance, streetSignDistance, roadMarkingDistance, deadAnimalPickupDistance, subsidenceDistance,
+            trafficSignalDistance, roadShoulderDistance, curbRepairDistance, parkMaintenanceDistance, sidewalkRepairDistance, treeMainteneanceDistance,
+            parkDistance, manholeCoverDistance, otherAnimalDistance, parkCompliantDistance, parkGrassDistance, inspectionDistance)  
+            
+# Assigning variables names to lists. Could not be done through loops
+abandonedVehicleDistance <- distances[1]
+catchBasinDistance <- distances[2]
+codeEnforcementDistance <- distances[3]
+recyclingProgramDistance <- distances[4]
+grassServiceDistance <- distances[5]
+illegalDumpingDistance <- distances[6]
+potholeRepairDistance <- distances[7]
+streetFloodingDistance <- distances[8]
+treeServiceEmergencyDistance <- distances[9]
+largeItemDistance <- distances[10]
+mosquitoControlDistance <- distances[11]
+treeServiceDistance <- distances[12]
+trafficSignDistance <- distances[13]
+streetLightDistance <- distances[14]
+generalServiceDistance <- distances[15]
+trashDistance <- distances[16]
+streetLightDistanc  <- distances[17]
+rodentComplaintDistance  <- distances[18]
+streetSignDistance <- distances[19]
+roadMarkingDistance <- distances[20]
+deadAnimalPickupDistance <- distances[21]
+subsidenceDistance <- distances[22]
+trafficSignalDistance <- distances[23]
+roadShoulderDistance  <- distances[24]
+curbRepairDistance  <- distances[25]
+parkMaintenanceDistance  <- distances[26]
+sidewalkRepairDistance <- distances[27]
+treeMainteneanceDistance <- distances[28]
+parkDistance <- distances[29]
+manholeCoverDistanc  <- distances[30]
+otherAnimalDistance <- distances[31]
+parkCompliantDistance <- distances[32]
+parkGrassDistance <- distances[33]
+inspectionDistance <- distances[34]
