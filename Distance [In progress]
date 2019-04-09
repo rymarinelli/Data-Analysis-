@@ -1,33 +1,38 @@
-#install.packages("geosphere")
-library(geosphere)
-library("dplyr")
+#Attempting to Generalize Distance Script
+# For some reason when you want to terminant the sequence, it will not accept a variabel
+# it wants you to hard code the number 
 
-## Finds the Distance of all instances of abandoned cars from city hall 
-
-lat <- abandonedVehicle$latitude [1:31643]
-
-abandonedVehicle <- abandonedVehicle[abandonedVehicle$longitude < 360,]
-long <- abandonedVehicle$longitude [1:31643]
-
-cityHallLat <- 29.951065
-CityHallLong <- -90.071533
-city <- c(CityHallLong,cityHallLat)
-
-distance <- seq(1: 31643)
-
-for( i in 1: 31643){
+# Function applies the Haversine formula to each longitutde latitude pair 
+distanceCalcu <- function(x){
+  cityHallLat <- 29.951065
+  CityHallLong <- -90.071533
+  city <- c(CityHallLong,cityHallLat)  
   
-  lat <- abandonedVehicle$latitude[i]
-  long <- abandonedVehicle$longitude[i]
-  loc <- c(long,lat)
+  x <- x[x$longitude < 360, ]
+  y <- nrow(x)
   
+  lat <- x$latitude[1 : nrow(x) ]
+  long <- x$long[1: nrow(x) ]
   
-  distance[i] <-  distHaversine(loc, city)
+  distancex <- seq( 1: nrow(x))
   
+  for (i in 1: nrow(x)){
+    lat <- x$latitude[i]
+    long <- x$longitude[i]
+    loc <- c(long,lat)
+    
+    distancex[i] <- distHaversine(loc,city )
+  }
+  print(distancex)
 }
 
-#_______________________________________________________________
+distanceRecyclingProgram <- distanceCalcu( recyclingProgram)
 
+#Applies the distance function that finds the distance for each point in the dataframe to each dataframe in the dataset
 
-
-
+lapply(list(abandonedVehicle, catchBasin, codeEnforcement, recyclingProgram, grassService,
+                illegalDumping, potholeRepair, streetFlooding, treeServiceEmergency, largeItem,
+                mosquitoControl, treeService, trafficSign, streetLight, generalService, trash,
+                streetLight, rodentComplaint, streetSign, roadMarking, deadAnimalPickup, subsidence ,
+                trafficSignal, roadShoulder, curbRepair, parkMaintenance, sidewalkRepair, treeMainteneance,
+                park, manholeCover, otherAnimal, parkCompliant , parkGrass, inspection), distanceCalcu) 
