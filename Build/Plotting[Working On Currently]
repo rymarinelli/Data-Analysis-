@@ -1,0 +1,24 @@
+library(tmap)    # for static and interactive maps
+library(leaflet) # for interactive maps
+library(mapview) # for interactive maps
+library(ggplot2) # tidyverse vis package
+library(shiny)   # for web applications
+library(spData)
+library(sp)
+colnames(data)
+
+data <- catchBasin[c(18,12,11)]
+long <- catchBasin$longitude[1: 5]
+lat <- catchBasin$latitude[1: 5]
+
+
+
+m <- leaflet() %>%
+addTiles() %>%  # Add default OpenStreetMap map tiles
+  addMarkers(data = catchBasin, lng= -90.0081 , 
+             lat= 30.01339, 
+            popup = issue_type)
+
+
+m
+
