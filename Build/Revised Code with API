@@ -1,11 +1,11 @@
-install.packages("RSocrata")
+#install.packages("RSocrata")
 library(RSocrata)
 
 #Reads data from API
 data <-read.socrata("https://data.nola.gov/resource/m959-fs8u.csv")
 data.frame(data)
 
-install.packages("dplyr")
+#install.packages("dplyr")
 
 #Imports functions for data cleaning
 library(dplyr)
