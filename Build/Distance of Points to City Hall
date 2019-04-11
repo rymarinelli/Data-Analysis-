@@ -1,8 +1,10 @@
 #Attempting to Generalize Distance Script
 
-#install.packages("functional)
-library(functional)
+#install.packages("functional")
+#install.packages("geosphere")
 
+library(functional)
+library(geosphere)
 #Finds the distance of each point in a dataframe to cityhall
 
 distanceCalcu <- function(x){
