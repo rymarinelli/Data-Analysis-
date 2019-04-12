@@ -1,0 +1,278 @@
+#Heat Map 
+#First step is to query by zipcode and get the number of incident per zip code 
+#Second step is to count how many incidents of each problem there were in each zip code 
+
+
+#install.packages("RSocrata")
+library(RSocrata)
+library(plyr) 
+
+#Reads data from API
+data <-read.socrata("https://data.nola.gov/resource/m959-fs8u.csv")
+data.frame(data)
+
+#install.packages("dplyr")
+
+#Imports functions for data cleaning
+library(dplyr)
+library(stringr)
+
+listOfZipCodes <- as.factor(data$zip_code)
+levels(listOfZipCodes)
+
+library(dplyr)
+
+first  <- filter(data, data$zip_code == "70001")
+data.frame(first)
+
+second  <- filter(data, data$zip_code == "70005")
+data.frame(second)
+
+third <- filter(data, data$zip_code == "70037")
+data.frame(third)
+
+fourth <- filter(data, data$zip_code == "70053")
+data.frame(fourth)
+
+fifth <- filter(data, data$zip_code == "70112")
+data.frame(fifth)
+
+sixth <- filter(data, data$zip_code == "70113")
+data.frame(sixth)
+
+seventh <- filter(data, data$zip_code == "70114")
+data.frame(seventh)
+
+eigth <- filter(data, data$zip_code == "70115")
+data.frame(eighth)
+
+nineth <- filter(data, data$zip_code == "70116")
+data.frame(nineth)
+
+tenth <- filter(data, data$zip_code == "70117")
+data.frame(tenth)
+
+eleventh <- filter(data, data$zip_code == "70118")
+data.frame(eleventh)
+
+twelfth <- filter(data, data$zip_code == "70119")
+data.frame(twelfth)
+
+thirdteenth <- filter(data, data$zip_code == "70121")
+data.frame(thirdteenth )
+
+fourteenth <- filter(data, data$zip_code == "70122")
+data.frame(fourteenth )
+
+fifteenth <- filter(data, data$zip_code == "70124")
+data.frame(fifteenth)
+
+sixteenth <- filter(data, data$zip_code == "70125")
+data.frame(sixteenth)
+
+seventeenth <- filter(data, data$zip_code == "70126")
+data.frame(seventeenth)
+
+eighteenth <- filter(data, data$zip_code == "70127")
+data.frame(eighteenth)
+
+nineteeth <- filter(data, data$zip_code == "70128")
+data.frame(nineteeth)
+
+twentieth <- filter(data, data$zip_code == "70129")
+data.frame(twentieth)
+
+twentyfirst <- filter(data, data$zip_code == "70130")
+data.frame(twentieth)
+
+twentysecond <- filter(data, data$zip_code == "70131")
+data.frame(twentieth)
+
+twentythird <- filter(data, data$zip_code == "70139")
+data.frame(twentieth)
+
+twentfourth <- filter(data, data$zip_code == "70163")
+data.frame(twentieth)
+
+
+
+
+
+counter <- function(x){
+  x_Dumping <- filter(x, x$issue_typeissue_typeissue_type == "Illegal Dumping Reporting")
+  data.frame(x_Dumping)
+  A <- nrow(x_Dumping)
+  nameA <- "Illegal Dumping Reporting"
+  
+  x_CodeEnforcement <- filter(x, x$issue_typeissue_type == "Code Enforcement General Request")
+  data.frame(x_CodeEnforcement)
+  B <- nrow(x_CodeEnforcement)
+  nameB <- "Code Enforcement General Request"
+  
+  x_Recycling <- filter(x, x$issue_typeissue_type == "Residential Recycling Programs")
+  data.frame(x_Recycling)
+  C <- nrow(x_Recycling)
+  nameC <- "Residential Recycling Programs"
+  
+  x_GrassService <- filter(x, x$issue_typeissue_type == "Grass Service")
+  data.frame(x_GrassService)
+  D <- nrow(x_GrassService)
+  nameD <- "Grass Service"
+  
+  x_TreeServiceEmergency <- filter(x, x$issue_typeissue_type == "Tree Service Emergency")
+  data.frame(x_TreeServiceEmergency)
+  E <- nrow(x_TreeServiceEmergency)
+  nameE <- "Tree Service Emergency"
+  
+  x_LargeItemTrash <- filter(x, x$issue_typeissue_type == "Large Item Trash/Garbage Pickup")
+  data.frame(x_LargeItemTrash)
+  F <- nrow(x_LargeItemTrash)
+  nameF <- "Large Item Trash/Garbage Pickup"
+  
+  x_MosquitoControl <- filter(x, x$issue_typeissue_type == "Mosquito Control")
+  data.frame(x_MosquitoControl)
+  G <- nrow(x_MosquitoControl)
+  nameG <- "Mosquito Control"
+  
+  x_TreeService <- filter(x, x$issue_typeissue_type == "Tree Service")
+  data.frame(x_TreeService)
+  H <- nrow(x_TreeService)
+  nameH <- "Tree Service"
+  
+  x_TrafficSign <- filter(x, x$issue_typeissue_type == "Traffic Sign")
+  data.frame(x_TrafficSign)
+  I <- nrow(x_TrafficSign)
+  nameI <- "Traffic Sign"
+  
+  x_StreetLight <- filter(x, x$issue_typeissue_type == "Street Light")
+  data.frame(x_StreetLight)
+  J <- nrow(x_StreetLight)
+  nameJ <- "Street Light"
+  
+  x_GeneralService <- filter(x, x$issue_typeissue_type == "General Service Request")
+  data.frame(x_GeneralService)
+  K <- nrow(x_GeneralService)
+  nameK <- "General Service Request"
+  
+  x_TrashAndGarbage <- filter(x, x$issue_typeissue_type == "Trash/Garbage Pickup")
+  data.frame(x_TrashAndGarbage)
+  L <- nrow(x_TrashAndGarbage)
+  nameL <- "Trash/Garbage Pickup"
+  
+  x_StreetLight <- filter(x, x$issue_typeissue_type == "Street Light")
+  data.frame(x_StreetLight)
+  M <- nrow(x_StreetLight)
+  nameM <- "Street Light"
+  
+  x_RodentComplaint <- filter(x, x$issue_typeissue_type == "Rodent Complaint")
+  data.frame(x_RodentComplaint)
+  N <- nrow(x_RodentComplaint)
+  nameN <- "Rodent Complaint"
+  
+  x_StreetNameSign <- filter(x, x$issue_typeissue_type == "Street Name Sign")
+  data.frame(x_StreetNameSign)
+  O <- nrow(x_StreetNameSign)
+  nameO <- "Street Name Sign"
+  
+  x_RoadSurfaceMarking <- filter(x, x$issue_typeissue_type == "Road Surface Marking")
+  data.frame(x_RoadSurfaceMarking)
+  P <- nrow(x_RoadSurfaceMarking)
+  nameP <- "Road Surface Marking"
+  
+  x_DeadAnimalPickup <- filter(x, x$issue_typeissue_type == "Dead Animal Pickup")
+  data.frame(x_DeadAnimalPickup)
+  Q <- nrow(x_DeadAnimalPickup)
+  nameQ <- "Dead Animal Pickup"
+  
+  x_Subsidence <- filter(x, x$issue_typeissue_type == "Subsidence")
+  data.frame(x_Subsidence)
+  R <- nrow(x_Subsidence)
+  nameR<- "Subsidence"
+  
+  x_TrafficSignal <- filter(x, x$issue_typeissue_type == "Traffic Signal")
+  data.frame(x_TrafficSignal)
+  S <- nrow(x_TrafficSignal)
+  nameS <- "Traffic Signal"
+  
+  x_RoadShoulderRepair <- filter(x, x$issue_typeissue_type == "Road Shoulder Repair")
+  data.frame(x_RoadShoulderRepair)
+  T <- nrow(x_RoadShoulderRepair)
+  nameT <- Road Shoulder Repair
+  
+  x_CurbRepair <- filter(x, x$issue_typeissue_type == "Curb Repair")
+  data.frame(x_CurbRepair)
+  U <- nrow(x_CurbRepair)
+  nameU <- "Curb Repair"
+  
+  x_ParkMaintenance <- filter(x, x$issue_typeissue_type == "Park Maintenance")
+  data.frame(x_ParkMaintenance)
+  V <- nrow(x_ParkMaintenance)
+  nameV <- "Park Maintenance"
+  
+  x_SidewalkRepair <- filter(x, x$issue_typeissue_type == "Sidewalk Repair")
+  data.frame(x_SidewalkRepair)
+  W <- nrow(x_SidewalkRepair)
+  nameW <- "Sidewalk Repair"
+  
+  x_TreeMaintenance <- filter(x, x$issue_typeissue_type == "Tree Maintenance")
+  data.frame(x_TreeMaintenance)
+  X <- nrow(x_TreeMaintenance)
+  nameX <- "Tree Maintenance"
+  
+  x_NORDC_Park_Maintenance <- filter(x, x$issue_typeissue_type == "NORDC Park Maintenance")
+  data.frame(x_NORDC_Park_Maintenance)
+  Y <- nrow(x_NORDC_Park_Maintenance)
+  nameY <- "NORDC Park Maintenance"
+  
+  x_ManholeCoverMaintenance <- filter(x, x$issue_typeissue_type == "Manhole Cover Maintenance")
+  data.frame(x_ManholeCoverMaintenance)
+  Z <- nrow(x_ManholeCoverMaintenance)
+  nameZ <- "Manhole Cover Maintenance"
+  
+  x_NonRodentCompliant <- filter(x, x$issue_typeissue_type == "Non Rodent Complaint")
+  data.frame(x_NonRodentCompliant)
+  AA <- nrow(x_NonRodentCompliant)
+  nameAA <- "Non Rodent Complaint"
+  
+  x_NORDC_Park_Complaint <- filter(x, x$issue_typeissue_type == "NORDC Park Complaint")
+  data.frame(x_NORDC_Park_Complaint)
+  AB <- nrow(x_NORDC_Park_Complaint)
+  nameAB <- "NORDC Park Complaint"
+  
+  x_NORDCGrassService <- filter(x, x$issue_typeissue_type == "NORDC Grass Service")
+  data.frame(x_NORDCGrassService)
+  AC <- nrow(x_NORDCGrassService)
+  nameAC <- "NORDC Grass Service"
+  
+  x_OccupancyInspection <- filter(x, x$issue_typeissue_type == "Occupancy Inspection")
+  data.frame(x_OccupancyInspection)
+  AD <- nrow(x_OccupancyInspection)
+  nameAD <- "Occupancy Inspection"
+  
+  x_AbandonedVehicle <- filter(x, x$issue_typeissue_type == "Abandoned Vehicle Reporting/Removal")
+  data.frame(x_AbandonedVehicle)
+  AE <- nrow(x_AbandonedVehicle)
+  nameAE <- "Abandoned Vehicle Reporting/Removal"
+  
+  x_AbandonedVehicle <- filter(x, x$issue_typeissue_type == "Catch Basin Maintenance")
+  data.frame(x_AbandonedVehicle)
+  AF <- nrow(x_AbandonedVehicle)
+  nameAF <- "Catch Basin Maintenance"
+  
+  
+  x_problems <- c(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X, Y, Z, AA, AB, AC, AD, AE, AF)
+  x_problem_Name <- c(nameA,nameB,nameC,nameD,nameE,nameF,nameG,nameH,nameI,nameJ,nameK,nameL,nameM,
+                      Nname,nameO,nameP,nameQ,nameR,nameS,nameT,nameU,nameV,nameW,nameX,nameY,nameZ,
+                      nameAA,nameAB,nameAC,nameAD,nameAE,nameAF)
+  
+  x_problem <- cbind(x_problem_Name,x_problems)
+  
+  
+}
+
+counter(first)
+
+
+
+
+
