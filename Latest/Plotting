@@ -1,0 +1,93 @@
+
+#install.packages("RSocrata")
+library(RSocrata)
+library(plyr) 
+
+#Reads data from API
+data <-read.socrata("https://data.nola.gov/resource/m959-fs8u.csv")
+data.frame(data)
+
+#install.packages("dplyr")
+
+#Imports functions for data cleaning
+library(dplyr)
+library(stringr)
+
+listOfZipCodes <- as.factor(data$zip_code)
+levels(listOfZipCodes)
+
+library(dplyr)
+
+first  <- filter(data, data$zip_code == "70001") 
+data.frame(first)
+
+
+second  <- filter(data, data$zip_code == "70005")
+data.frame(second)
+nrow(second)
+
+third <- filter(data, data$zip_code == "70037")
+data.frame(third)
+
+fourth <- filter(data, data$zip_code == "70053")
+data.frame(fourth)
+
+fifth <- filter(data, data$zip_code == "70112")
+data.frame(fifth)
+
+sixth <- filter(data, data$zip_code == "70113")
+data.frame(sixth)
+
+seventh <- filter(data, data$zip_code == "70114")
+data.frame(seventh)
+
+eighth <- filter(data, data$zip_code == "70115")
+data.frame(eighth)
+
+nineth <- filter(data, data$zip_code == "70116")
+data.frame(nineth)
+
+tenth <- filter(data, data$zip_code == "70117")
+data.frame(tenth)
+
+eleventh <- filter(data, data$zip_code == "70118")
+data.frame(eleventh)
+
+twelfth <- filter(data, data$zip_code == "70119")
+data.frame(twelfth)
+
+thirdteenth <- filter(data, data$zip_code == "70121")
+data.frame(thirdteenth )
+
+fourteenth <- filter(data, data$zip_code == "70122")
+data.frame(fourteenth )
+
+fifteenth <- filter(data, data$zip_code == "70124")
+data.frame(fifteenth)
+
+sixteenth <- filter(data, data$zip_code == "70125")
+data.frame(sixteenth)
+
+seventeenth <- filter(data, data$zip_code == "70126")
+data.frame(seventeenth)
+
+eighteenth <- filter(data, data$zip_code == "70127")
+data.frame(eighteenth)
+
+nineteeth <- filter(data, data$zip_code == "70128")
+data.frame(nineteeth)
+
+twentieth <- filter(data, data$zip_code == "70129")
+data.frame(twentieth)
+
+twentyfirst <- filter(data, data$zip_code == "70130")
+data.frame(twentyfirst)
+
+twentysecond <- filter(data, data$zip_code == "70131")
+data.frame(twentysecond)
+
+twentythird <- filter(data, data$zip_code == "70139")
+data.frame(twentythird)
+
+twentyfourth <- filter(data, data$zip_code == "70163")
+data.frame(twentyfourth)
