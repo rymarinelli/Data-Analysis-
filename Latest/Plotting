@@ -1,3 +1,11 @@
+   # for static and interactive maps
+library(leaflet) # for interactive maps
+library(mapview) # for interactive maps
+library(ggplot2) # tidyverse vis package
+library(shiny)   # for web applications
+library(spData)
+library(sp)
+
 
 #install.packages("RSocrata")
 library(RSocrata)
@@ -91,3 +99,132 @@ data.frame(twentythird)
 
 twentyfourth <- filter(data, data$zip_code == "70163")
 data.frame(twentyfourth)
+
+
+
+firstPlot <- leaflet() %>%
+  addTiles() %>%  
+  addMarkers(data = first, ~first$longitude, ~first$latitude,
+             popup = first$issue_type,clusterOptions = markerClusterOptions())
+
+
+# There is severe damage to area near by Palmetto Street 
+secondPlot <- leaflet() %>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  addMarkers(data = second, ~second$longitude, second$latitude,
+             popup = second$issue_type, clusterOptions = markerClusterOptions())
+
+thirdPlot <- leaflet() %>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  addMarkers(data = third, ~third$longitude, ~third$latitude,
+             popup = third$issue_type,clusterOptions = markerClusterOptions())
+
+fourthPlot <- leaflet() %>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  addMarkers(data = fourth, ~fourth$longitude, ~fourth$latitude,
+             popup = fourth$issue_type, clusterOptions = markerClusterOptions())
+  
+fifthPlot <- leaflet() %>% 
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  addMarkers(data = third, ~fifth$longitude, ~ fifth$latitude,
+             popup = fifth$issue_type,  clusterOptions = markerClusterOptions())
+
+fifthPlot <- leaflet(fifth) %>% addTiles() %>% addMarkers( popup = fifth$issue_type,
+  clusterOptions = markerClusterOptions())
+# Learn to use setView
+
+sixthPlot <- leaflet() %>% 
+  addTiles () %>% 
+  addMarkers(data = sixth, ~sixth$longitude, ~sixth$latitude, popup = sixth$issue_type,
+             clusterOptions = markerClusterOptions())
+
+seventhPlot <- leaflet() %>% 
+  addTiles () %>% 
+  addMarkers(data = seventh, ~seventh$longitude, ~seventh$latitude, popup = seventh$issue_type,
+             clusterOptions = markerClusterOptions())
+
+eigthPlot <- leaflet() %>% 
+  addTiles () %>% 
+  addMarkers(data = eighth, ~eighth$longitude, ~eighth$latitude, popup = eighth$issue_type,
+             clusterOptions = markerClusterOptions())
+
+ninethPlot <- leaflet() %>% 
+  addTiles () %>% 
+  addMarkers(data = nineth, ~nineth$longitude, ~nineth$latitude, popup = nineth$issue_type,
+             clusterOptions = markerClusterOptions())
+
+tenthPlot <- leaflet() %>% 
+  addTiles() %>% 
+  addMarkers(data = tenth, ~tenth$longitude, ~tenth$latitude, popup = tenth$issue_type,
+             clusterOptions = markerClusterOptions())
+
+eleventhPlot <- leaflet() %>% 
+  addTiles() %>% 
+  addMarkers(data = eleventh, ~eleventh$longitude, ~eleventh$latitude, popup = eleventh$issue_type,
+             clusterOptions = markerClusterOptions())
+
+twelfthPlot <- leaflet() %>% 
+  addTiles() %>% 
+  addMarkers(data = twelfth, ~twelfth$longitude, ~twelfth$latitude, popup = twelfth$issue_type,
+             clusterOptions = markerClusterOptions())
+
+thirdteenthPlot <- leaflet() %>% 
+  addTiles() %>% 
+  addMarkers(data = thirdteenth, ~thirdteenth$longitude, ~thirdteenth$latitude, popup = thirdteenth$issue_type,
+             clusterOptions = markerClusterOptions())
+
+fourteenthPlot <- leaflet() %>% 
+  addTiles() %>% 
+  addMarkers(data = fourteenth, ~fourteenth$longitude, ~fourteenth$latitude, popup = fourteenth$issue_type,
+             clusterOptions = markerClusterOptions())
+
+fifteenPlot <- leaflet() %>% 
+  addTiles() %>% 
+  addMarkers(data = fifteenth, ~fifteenth$longitude, ~fifteenth$latitude, popup = fifteenth$issue_type,
+             clusterOptions = markerClusterOptions())
+
+sixteenthPlot <- leaflet() %>% 
+  addTiles() %>% 
+  addMarkers(data = sixteenth, ~sixteenth$longitude, ~sixteenth$latitude, popup = sixteenth$issue_type,
+             clusterOptions = markerClusterOptions())
+
+seventeenthPlot <- leaflet() %>% 
+  addTiles() %>% 
+  addMarkers(data = seventeenth, ~seventeenth$longitude, ~seventeenth$latitude, popup = sixteenth$issue_type,
+             clusterOptions = markerClusterOptions())
+
+
+eighteenthPlot <- leaflet() %>% 
+  addTiles() %>% 
+  addMarkers(data = eighteenth, ~eighteenth$longitude, ~eighteenth$latitude, popup = eighteenth$issue_type,
+             clusterOptions = markerClusterOptions())
+
+nineteethPlot <- leaflet() %>% 
+  addTiles() %>% 
+  addMarkers(data = nineteeth, ~nineteeth$longitude, ~nineteeth$latitude, popup = nineteeth$issue_type,
+             clusterOptions = markerClusterOptions())
+
+twentiethPlot <- leaflet() %>% 
+  addTiles() %>% 
+  addMarkers(data = twentieth, ~twentieth$longitude, ~twentieth$latitude, popup = twentieth$issue_type,
+             clusterOptions = markerClusterOptions())
+
+twentyfirst <- leaflet() %>% 
+  addTiles() %>% 
+  addMarkers(data = twentieth, ~twentyfirst$longitude, ~twentyfirst$latitude, popup = twentyfirst$issue_type,
+             clusterOptions = markerClusterOptions())
+
+twentysecondPlot <- leaflet() %>% 
+  addTiles() %>% 
+  addMarkers(data = twentysecond, ~twentysecond$longitude, ~twentysecond$latitude, popup = twentysecond$issue_type,
+             clusterOptions = markerClusterOptions())
+
+twentythirdPlot <- leaflet() %>% 
+  addTiles() %>% 
+  addMarkers(data = twentythird, ~twentythird$longitude, ~twentythird$latitude, popup = twentythird$issue_type,
+             clusterOptions = markerClusterOptions())
+
+twentyfourthPlot <- leaflet() %>% 
+  addTiles() %>% 
+  addMarkers(data = twentyfourth, ~twentyfourth$longitude, ~twentyfourth$latitude, popup = twentyfourth$issue_type,
+             clusterOptions = markerClusterOptions())
