@@ -1,0 +1,67 @@
+library(tidyverse)
+
+# new dataset selecting only columns of interest and keeping all rows 
+data_v2 <- data %>%
+  select(city, issue_type, latitude, longitude, neighborhood_district, zip_code)
+
+# didn't work
+issue_zip <- data_v2 %>%
+  group_by(zip_code) %>%
+  summarise(issue_type)
+
+
+issue_zip <- data_v2 %>%
+  group_by(zip_code) %>%
+  summarise(issues = count(issue_type))
+
+as.factor(data_v2$issue_type)
+levels(data_v2$issue_type)
+class(data_v2$issue_type)
+nrow(data_v2$issue_type)
+
+count(data_v2$issue_type)
+
+
+summarize(data_v2)
+
+# exploratory data analysis
+str(data_v2)
+summary(data_v2)
+
+# remove missing values within zip code
+data_v3 <- data_v2 %>%
+  filter(zip_code > 1)
+
+#didn't work
+issue_zip <- data_v3 %>%
+  group_by(zip_code, issue_type) %>%
+  summarise_all(na.omit(zip_code))
+
+issue_zip <- data_v3 %>%
+  group_by(zip_code) %>%
+  summarise(issues = count(issue_type))
+
+sum(!is.na(data_v3$issue_type))
+?recode
+
+# built a temporary table counting/summing by issue types
+data_v3 %>%
+  count(issue_type)
+
+# built a temporary table counting issues types grouped by zip codes
+data_v3 %>%
+  group_by(zip_code) %>%
+  count(issue_type)
+
+# built a dataframe counting issue types grouped by zip codes
+data_v4 <- data_v3 %>%
+  group_by(zip_code) %>%
+  count(issue_type)
+
+# attempted to create dataframe with latitude and longitude but this is no longer relevant because lat and long no longer relevant
+data_v5 <- data_v3 %>%
+  select(latitude, longitude, zip_code, issue_type) %>%
+  group_by(zip_code) %>%
+  count(issue_type)
+
+
