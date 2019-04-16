@@ -1,0 +1,83 @@
+#Secondary Plot 
+library(tidyverse)
+library(leaflet)
+#install.packages("leaflet.esri")
+library(leaflet.esri)
+library(leaflet.extras)
+
+
+
+firstheat<- leaflet(first) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
+  addWebGLHeatmap(~ first$longitude, ~ first$latitude, size = 60)  
+
+secondheat <- leaflet(second) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
+  addWebGLHeatmap(~ second$longitude, ~ second$latitude, size = 60)  
+
+thirdheat <- leaflet(third) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
+  addWebGLHeatmap(~ third$longitude, ~ third$latitude, size = 60)  
+
+fourthheat <- leaflet(fourth) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
+  addWebGLHeatmap(~ fourth$longitude, ~ fourth$latitude, size = 60)  
+
+fifthheat <- leaflet(fifth) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
+  addWebGLHeatmap(~ fifth$longitude, ~ fifth$latitude, size = 60)  
+
+
+sixthheat <- leaflet(six) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
+  addWebGLHeatmap(~ sixth$longitude, ~ sixth$latitude, size = 60)  
+
+seventhheat <- leaflet(seventh) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
+  addWebGLHeatmap(~ seventhheat$longitude, ~ seventh$latitude, size = 60)  
+
+
+eightheat <- leaflet(eigth) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
+  addWebGLHeatmap(~ eigth$longitude, ~ eigth$latitude, size = 60)  
+
+
+ninethheat <- leaflet(eigth) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
+  addWebGLHeatmap(~ nineth$longitude, ~ nineth$latitude, size = 60)  
+
+tenthheat <- leaflet(tenth) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
+  addWebGLHeatmap(~ tenth$longitude, ~ tenth$latitude, size = 60)  
+
+eleventhheat <- leaflet(eleventh) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
+  addWebGLHeatmap(~ eleventh$longitude, ~ eleventhheat$latitude, size = 60)  
+  
+twelfthheat <- leaflet(twelfth) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
+  addWebGLHeatmap(~ twelfth$longitude, ~ twelfth$latitude, size = 60)  
+
+thirdteenthheat <- leaflet(thirdteenth) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
+  addWebGLHeatmap(~ thirdteenth$longitude, ~ thirdteenth$latitude, size = 60)  
+
+fourteenthheat <- leaflet(fourteenth) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
+  addWebGLHeatmap(~ fourteenth$longitude, ~ fourteenth$latitude, size = 60)  
+
+fifthteenheat <- leaflet(fifteenth) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
+  addWebGLHeatmap(~ fifteenth$longitude, ~ fifteenth$latitude, size = 60)  
+
+sixteenheat <- leaflet(sixteenth) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
+  addWebGLHeatmap(~ sixteenth$longitude, ~ sixteenth$latitude, size = 60)  
+
+seventeenthheat <- leaflet(seventeenth) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
+  addWebGLHeatmap(~ seventeenth$longitude, ~ seventeenth$latitude, size = 60)  
+
+eighteenheat <- leaflet(eighteenth) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
+  addWebGLHeatmap(~ eighteenheat$longitude, ~ eighteen$latitude, size = 60)
+
+nineteethheat <- leaflet(nineteeth) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
+  addWebGLHeatmap(~ nineteeth$longitude, ~ nineteeth$latitude, size = 60)
+
+twentiethheat <- leaflet(twentieth) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
+  addWebGLHeatmap(~ twentieth$longitude, ~ twentieth$latitude, size = 60)
+
+twentyfirstheat <- leaflet(twentyfirst) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
+  addWebGLHeatmap(~ twentyfirst$longitude, ~ twentyfirst$latitude, size = 60)
+
+twentysecondheat <- leaflet(twentysecond) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
+  addWebGLHeatmap(~ twentysecond$longitude, ~ twentysecond$latitude, size = 60)
+
+twentythirdheat <- leaflet(twentythird) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
+  addWebGLHeatmap(~ twentythird$longitude, ~ twentythird$latitude, size = 60)
+
+twentyfourthheat <- leaflet(twentyfourth) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
+  addWebGLHeatmap(~ twentyfourth$longitude, ~ twentyfourth$latitude, size = 60)
