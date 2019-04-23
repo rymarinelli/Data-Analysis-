@@ -1,4 +1,39 @@
+#Secondary Plot 
+library(tidyverse)
+library(leaflet)
+#install.packages("leaflet.esri")
+library(leaflet.esri)
+library(leaflet.extras)
 
-firstheat<- leaflet(first) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
-  addMarkers(data = nineteeth, ~nineteeth$longitude, ~nineteeth$latitude, popup = nineteeth$issue_type,
-             clusterOptions = markerClusterOptions()) 
+
+nightMaps <- function(x){
+  xNight <- leaflet(x) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
+    addMarkers(data = x, ~x$longitude, ~x$latitude, popup = x$issue_type,
+               clusterOptions = markerClusterOptions()) 
+  return(xNight)
+}
+
+nightMaps(first)
+nightMaps(second)
+nightMaps(third)
+nightMaps(fourth)
+nightMaps(fifth)
+nightMaps(sixth)
+nightMaps(seventh)
+nightMaps(eighth)
+nightMaps(nineth)
+nightMaps(tenth)
+nightMaps(eleventh)
+nightMaps(twelfth)
+nightMaps(thirdteenth)
+nightMaps(fourteenth)
+nightMaps(fifteenth)
+nightMaps(sixteenth)
+nightMaps(seventeenth)
+nightMaps(eighteenth)
+nightMaps(nineteeth)
+nightMaps(twentieth)
+nightMaps(twentyfirst)
+nightMaps(twentysecond)
+nightMaps(twentythird)
+nightMaps(twentyfourth)
