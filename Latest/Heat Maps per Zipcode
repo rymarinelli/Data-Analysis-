@@ -23,26 +23,26 @@ fifthheat <- leaflet(fifth) %>% addProviderTiles(providers$CartoDB.DarkMatter) %
   addWebGLHeatmap(~ fifth$longitude, ~ fifth$latitude, size = 60)  
 
 
-sixthheat <- leaflet(six) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
+sixthheat <- leaflet(sixth) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
   addWebGLHeatmap(~ sixth$longitude, ~ sixth$latitude, size = 60)  
 
 seventhheat <- leaflet(seventh) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
-  addWebGLHeatmap(~ seventhheat$longitude, ~ seventh$latitude, size = 60)  
+  addWebGLHeatmap(~ seventh$longitude, ~ seventh$latitude, size = 60)  
 
 
-eightheat <- leaflet(eigth) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
-  addWebGLHeatmap(~ eigth$longitude, ~ eigth$latitude, size = 60)  
+eightheat <- leaflet(eighth) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
+  addWebGLHeatmap(~eighth$longitude, ~eighth$latitude, size = 60)  
 
 
-ninethheat <- leaflet(eigth) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
+ninethheat <- leaflet(nineth) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
   addWebGLHeatmap(~ nineth$longitude, ~ nineth$latitude, size = 60)  
 
 tenthheat <- leaflet(tenth) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
   addWebGLHeatmap(~ tenth$longitude, ~ tenth$latitude, size = 60)  
 
 eleventhheat <- leaflet(eleventh) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
-  addWebGLHeatmap(~ eleventh$longitude, ~ eleventhheat$latitude, size = 60)  
-  
+  addWebGLHeatmap(~ eleventh$longitude, ~ eleventh$latitude, size = 60)  
+
 twelfthheat <- leaflet(twelfth) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
   addWebGLHeatmap(~ twelfth$longitude, ~ twelfth$latitude, size = 60)  
 
@@ -62,7 +62,7 @@ seventeenthheat <- leaflet(seventeenth) %>% addProviderTiles(providers$CartoDB.D
   addWebGLHeatmap(~ seventeenth$longitude, ~ seventeenth$latitude, size = 60)  
 
 eighteenheat <- leaflet(eighteenth) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
-  addWebGLHeatmap(~ eighteenheat$longitude, ~ eighteen$latitude, size = 60)
+  addWebGLHeatmap(~ eighteenth$longitude, ~ eighteenth$latitude, size = 60)
 
 nineteethheat <- leaflet(nineteeth) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
   addWebGLHeatmap(~ nineteeth$longitude, ~ nineteeth$latitude, size = 60)
