@@ -1,0 +1,4 @@
+
+firstheat<- leaflet(first) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
+  addMarkers(data = nineteeth, ~nineteeth$longitude, ~nineteeth$latitude, popup = nineteeth$issue_type,
+             clusterOptions = markerClusterOptions()) 
