@@ -1,11 +1,11 @@
-#Secondary Plot 
+#Third Plot 
 library(tidyverse)
 library(leaflet)
 #install.packages("leaflet.esri")
 library(leaflet.esri)
 library(leaflet.extras)
 
-
+#Creates user defined function to apply leaflet functions and arguments 
 nightMaps <- function(x){
   xNight <- leaflet(x) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>%
     addMarkers(data = x, ~x$longitude, ~x$latitude, popup = x$issue_type,
