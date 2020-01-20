@@ -1,0 +1,147 @@
+nstall.packages("RSocrata")
+library(RSocrata)
+
+#Reads data from API
+data <-read.socrata("https://data.nola.gov/resource/m959-fs8u.csv")
+data.frame(data)
+
+install.packages("dplyr")
+
+#Imports functions for data cleaning
+library(dplyr)
+library(stringr)
+
+
+
+# Queries Data by issue type
+
+abandonedVehicle <- filter(data, issue_type == "Abandoned Vehicle Reporting/Removal")
+data.frame(abandonedVehicle)
+
+catchBasin <- filter(data, issue_type == "Catch Basin Maintenance")
+data.frame(catchBasin)
+
+codeEnforcement <- filter(data, issue_type == "Code Enforcement General Request")
+data.frame(codeEnforcement)
+
+recyclingProgram <- filter(data, issue_type == "Residential Recycling Programs")
+data.frame(recyclingProgram)
+
+grassService <- filter(data, issue_type == "Grass Service")
+data.frame(grassService)
+
+illegalDumping <- filter(data,issue_type == "Illegal Dumping Reporting")
+data.frame(illegalDumping)
+
+potholeRepair <- filter(data, issue_type == "Pothole/Roadway Surface Repair")
+data.frame(potholeRepair)
+
+streetFlooding <- filter(data, issue_type == "Street Flooding/Drainage")
+data.frame(streetFlooding)
+
+treeServiceEmergency <- filter(data, issue_type == "Tree Service Emergency")
+data.frame(treeServiceEmergency)
+
+largeItem <- filter(data, issue_type == "Large Item Trash/Garbage Pickup")
+data.frame(largeItem)
+
+mosquitoControl<- filter(data, issue_type == "Mosquito Control")
+data.frame(mosquitoControl)
+
+treeService <- filter(data, issue_type == "Tree Service")
+data.frame(treeService)
+
+trafficSign <- filter(data, issue_type == "Traffic Sign")
+data.frame(trafficSign)
+
+streetLight <- filter(data, issue_type == "Street Light")
+data.frame(streetLight)
+
+generalService <- filter(data, issue_type == "General Service Request")
+data.frame(generalService)
+
+trash <- filter(data, issue_type == "Trash/Garbage Pickup")
+data.frame(trash)
+
+streetLight <- filter(data, issue_type == 'Street Light')
+data.frame(streetLight)
+
+rodentComplaint <- filter(data, issue_type == "Rodent Complaint")
+data.frame(rodentComplaint)
+
+streetSign <- filter(data, issue_type == "Street Name Sign")
+data.frame(streetSign)
+
+roadMarking <- filter(data, issue_type == "Road Surface Marking")
+data.frame(roadMarking)
+
+deadAnimalPickup <- filter(data, issue_type == "Dead Animal Pickup")
+data.frame(deadAnimalPickup)
+
+subsidence <- filter(data, issue_type == "Subsidence")
+data.frame(subsidence)
+
+trafficSignal <- filter( data, issue_type == "Traffic Signal")
+data.frame(trafficSignal)
+
+roadShoulder <- filter( data, issue_type == "Road Shoulder Repair")
+data.frame(roadShoulder)
+
+curbRepair <- filter(data, issue_type == "Curb Repair")
+data.frame(roadShoulder)
+
+parkMaintenance <- filter(data , issue_type == "Park Maintenance")
+data.frame(parkMaintenance)
+
+sidewalkRepair <- filter(data, issue_type == "Sidewalk Repair")
+data.frame(sidewalkRepair)
+
+
+treeMainteneance <- filter(data, issue_type == "Tree Maintenance")
+data.frame(treeMainteneance)
+
+park <- filter(data, issue_type == "NORDC Park Maintenance")
+data.frame(park)
+
+manholeCover <- filter(data, issue_type == "Manhole Cover Maintenance")
+data.frame(manholeCover)
+
+otherAnimal <- filter(data, issue_type == "Non Rodent Complaint")
+data.frame(otherAnimal)
+
+parkCompliant <- filter(data, issue_type == "NORDC Park Complaint")
+data.frame(parkCompliant)
+
+parkGrass <- filter(data, issue_type == "NORDC Grass Service")
+data.frame(parkGrass)
+
+inspection <- filter(data, issue_type == "Occupancy Inspection")
+data.frame(inspection)
+
+# Code Checks if All data was filtered by issue type 
+#remainder <- filter(data, issue_type != "Catch Basin Maintenance" & issue_type != "Catch Basin Maintenance" &
+#                    issue_type != "Code Enforcement General Request" & issue_type != "Residential Recycling Programs" &
+#                    issue_type != "Grass Service" & issue_type != "Illegal Dumping Reporting" &
+#                    issue_type != "Pothole/Roadway Surface Repair" & issue_type != "Street Flooding/Drainage" &
+#                    issue_type !=  "Tree Service Emergency" & issue_type != "Large Item Trash/Garbage Pickup" & 
+#                    issue_type != "Mosquito Control" & issue_type != "Abandoned Vehicle Reporting/Removal" &
+#                    issue_type != "Tree Service" & issue_type != "Traffic Sign" & issue_type != "General Service Request" &
+#                    issue_type != "Trash/Garbage Pickup" & issue_type != "Street Light" & issue_type != "Rodent Complaint" &
+#                    issue_type !=  "Street Name Sign" &  issue_type != "Road Surface Marking" & issue_type != "Dead Animal Pickup" &
+#                    issue_type != "Subsidence" & issue_type != "Traffic Signal" & issue_type != "Road Shoulder Repair" &
+#                    issue_type != "Park Maintenance" & issue_type != "Tree Maintenance" & issue_type != "NORDC Park Maintenance" &
+#                    issue_type != "Sidewalk Repair" & issue_type != "Curb Repair" & issue_type != "Road Shoulder Repair" &
+#                    issue_type != "Manhole Cover Maintenance" & issue_type != "Non Rodent Complaint" & issue_type != "NORDC Park Complaint" &
+#                    issue_type != "NORDC Grass Service" & issue_type != "Occupancy Inspection")
+
+long <- data$longitude
+lat <- data$latitude
+location <- cbind(lat,long)
+
+write.csv(location,"location.csv")
+write.nb.gal(col.gal.nb, "location.csv")
+
+require(rgdal)
+setwd("C:/Users/rmarinelli4/Documents/Learning R/Spatial Statistics in R")
+shape <- readOGR("Zone_Area.shp")
+
