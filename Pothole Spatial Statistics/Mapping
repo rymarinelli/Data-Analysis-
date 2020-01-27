@@ -1,0 +1,66 @@
+#install.packages("RSocrata")
+library(RSocrata)
+library(rgdal)
+library(sp)
+library(spdep)
+library(rspatial)
+library(gstat)
+library(lubridate)
+library(dplyr)
+library(tmaptools)
+
+
+#Confirms Ticket Issues for potholes have been open for years 
+# <- filter(data, data$ticket_id == "101000590546")
+
+df <- read_csv("df.csv")
+cols(
+  X1 = col_double(),
+  ID = col_double(),
+  lat = col_double(),
+  long = col_double(),
+  duration = col_double()
+) 
+
+
+interpolate<-function(z,datatable,grid,exp){
+  idw_map<- idw(z~1, datatable, newdata=grid, idp=exp)
+  im <- as.image.SpatialGridDataFrame(idw_map) # this is incredibly useful !!!!!!
+  image(idw_map, "var1.pred", col=terrain.colors(20))
+  contour(idw_map, "var1.pred", add=TRUE)
+  plot(datatable, add=TRUE, pch="+")
+}
+
+coordinates(df)<-c("lat","long")
+
+class(df)
+
+df_grid <-spsample(df,"regular", n=3720)
+
+class(df_grid)
+
+gridded(df_grid) <- TRUE
+
+
+fullgrid(df_grid) <- TRUE
+class(df_grid)
+
+exp <- 2
+z <- df$duration
+
+map <- interpolate(z,df, df_grid,exp) #call the function
+
+exp <- 1
+map <- interpolate(z,df,df_grid,exp)
+
+df_1 <- krige(z~1, df,df_grid, degree = 1)
+im <- as.image.SpatialGridDataFrame(df_1)
+image(df_1,"var1.pred", col = terrain.colors(5))
+contour(df_1,"var1.pred", add = T)
+plot(df_1,add = T, pch = "+")
+
+df_2 <- krige(z~1, df,df_grid, degree = 2)
+im <- as.image.SpatialGridDataFrame(df_1)
+image(df_1,"var1.pred", col = terrain.colors(5))
+contour(df_1,"var1.pred", add = T)
+plot(df_2,add = T, pch = "+")
