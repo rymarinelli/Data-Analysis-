@@ -1,0 +1,41 @@
+#install.packages("RSocrata")
+library(RSocrata)
+library(rgdal)
+library(sp)
+library(spdep)
+library(rspatial)
+library(gstat)
+library(lubridate)
+library(dplyr)
+library(tmaptools)
+
+#Reads data from API
+data <-read.socrata("https://data.nola.gov/resource/m959-fs8u.csv")
+data.frame(data)
+
+#data <- filter(data, issue_type == "Pothole/Roadway Surface Repair")
+open <- data$ticket_created_date_time %>%  ymd_hms()
+close <- data$ticket_closed_date_time %>%  ymd_hms()
+
+duration <- difftime(open, close, units = "days") %>% abs() 
+open <- data$ticket_created_date_time 
+close <- data$ticket_closed_date_time
+lat <- data$latitude
+long <- data$longitude
+options(scipen=999)
+
+df <- cbind(data$ticket_id,lat,long,duration) %>% data.frame() %>% na.omit() 
+colnames(df) <- c("ID", "lat", "long", "duration")
+View(df)
+write.csv(df,"df.csv")
+
+
+
+#Garbage Collection
+rm(data)
+rm(df)
+rm(open)
+rm(close)
+rm(lat)
+rm(long)
+rm(duration)
