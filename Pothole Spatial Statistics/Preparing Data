@@ -1,4 +1,3 @@
-#install.packages("RSocrata")
 library(RSocrata)
 library(rgdal)
 library(sp)
@@ -17,6 +16,9 @@ data.frame(data)
 open <- data$ticket_created_date_time %>%  ymd_hms()
 close <- data$ticket_closed_date_time %>%  ymd_hms()
 
+
+# Determines how long it takes New Orleans to react to pot holes 
+
 duration <- difftime(open, close, units = "days") %>% abs() 
 open <- data$ticket_created_date_time 
 close <- data$ticket_closed_date_time
@@ -24,18 +26,16 @@ lat <- data$latitude
 long <- data$longitude
 options(scipen=999)
 
+#Gives names to columns 
 df <- cbind(data$ticket_id,lat,long,duration) %>% data.frame() %>% na.omit() 
+df.1 <- df
+
+#Removes data that has errors
+df.1 <- df.1[df$lat < 30, ]
+df.1 <- df.1[df$long < 89,]
+df <- df.1 
+
+
 colnames(df) <- c("ID", "lat", "long", "duration")
-View(df)
-write.csv(df,"df.csv")
 
-
-
-#Garbage Collection
-rm(data)
-rm(df)
-rm(open)
-rm(close)
-rm(lat)
-rm(long)
-rm(duration)
+write.csv(df, "df.csv")
